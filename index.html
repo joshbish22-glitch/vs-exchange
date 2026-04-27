@@ -1,67 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VS Exchange Game Style Demo</title>
-<style>:root{--bg:#050606;--panel:#0b0d0f;--card:rgba(12,14,16,.92);--card2:#111315;--line:rgba(0,238,255,.34);--muted:rgba(255,255,255,.66);--cyan:#20eaff;--green:#66ff00;--lime:#8dff00;--orange:#ff5a18;--amber:#ffd166;--red:#ff315d;--blue:#179cff}*{box-sizing:border-box}html{background:#050606}body{margin:0;font-family:Orbitron,Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 80% 0%,rgba(0,238,255,.16),transparent 28%),radial-gradient(circle at 15% 20%,rgba(102,255,0,.10),transparent 26%),#050606;color:white;min-height:100vh}.wrap{width:100%;max-width:none;margin:0;padding:0}.top{background:#050606;border-bottom:1px solid rgba(0,238,255,.2);border-radius:0;padding:24px 42px;box-shadow:0 18px 80px rgba(0,0,0,.6);position:sticky;top:0;z-index:10}.brand{display:flex;gap:16px;align-items:center;margin-bottom:18px}.logo{width:66px;height:56px;border-radius:7px;background:linear-gradient(135deg,var(--blue) 0 45%,var(--lime) 45% 100%);color:#020303;display:grid;place-items:center;font-weight:1000;font-size:25px;clip-path:polygon(0 0,72% 0,100% 50%,72% 100%,0 100%,27% 50%)}.brand small{color:var(--muted);letter-spacing:.08em;text-transform:uppercase}h1,h2,h3,p{margin:0}h1{font-size:34px;letter-spacing:-1px}h2{letter-spacing:-1px}.nav{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}.nav button,.btn{border:1px solid rgba(0,238,255,.35);background:#101214;color:white;border-radius:4px;padding:11px 15px;cursor:pointer;font-weight:900;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}.nav button.active,.btn.primary{background:var(--green);color:#061006;border-color:var(--green);box-shadow:0 0 24px rgba(102,255,0,.25)}.btn.ghost{background:#111315}.btn.red{border-color:rgba(255,49,93,.6);color:#ffd0d9}.grid{display:grid;gap:20px}.main{grid-template-columns:1.75fr .75fr;margin:0;padding:26px 42px}.card{background:linear-gradient(180deg,rgba(22,24,27,.96),rgba(7,8,9,.96));border:1px solid rgba(0,238,255,.26);border-radius:10px;padding:24px;box-shadow:0 18px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.025)}.hero{background:linear-gradient(115deg,rgba(3,5,5,.94),rgba(18,22,24,.9)),radial-gradient(circle at 78% 20%,rgba(0,238,255,.2),transparent 35%);padding:42px;border-color:rgba(102,255,0,.35)}.hero h2{font-size:58px;line-height:.98;max-width:970px;text-transform:uppercase;color:var(--cyan);text-shadow:0 0 30px rgba(32,234,255,.2)}.hero p{color:var(--muted);font-size:17px;line-height:1.6;margin-top:18px;max-width:860px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.metrics{grid-template-columns:repeat(2,1fr)}.metric{background:#101214;border:1px solid rgba(0,238,255,.24);border-radius:8px;padding:18px}.metric small,.muted{color:var(--muted);font-family:Inter,system-ui,sans-serif}.metric b{display:block;font-size:28px;margin-top:6px;color:var(--green)}.features{grid-template-columns:repeat(4,1fr)}.feature h3{margin-top:12px;color:#fff;text-transform:uppercase}.feature p{color:var(--muted);line-height:1.55;font-size:14px;margin-top:8px;font-family:Inter,system-ui,sans-serif}.title{display:flex;align-items:center;gap:12px;margin-bottom:18px}.title h2{text-transform:uppercase;color:var(--cyan);font-size:36px}.ico{width:42px;height:42px;border-radius:5px;background:rgba(0,238,255,.12);border-left:4px solid var(--cyan);display:grid;place-items:center}.tourneys{grid-template-columns:repeat(2,1fr)}.tourney{background:#0f1113;border:1px solid rgba(0,238,255,.34);border-radius:9px;padding:16px;position:relative;overflow:hidden}.tourney:before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cyan)}.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.badge{font-size:11px;border-radius:3px;padding:6px 9px;background:rgba(255,255,255,.08);color:#fff;text-transform:uppercase;font-weight:900;letter-spacing:.05em}.badge.green{background:rgba(102,255,0,.16);color:#c8ff98}.badge.blue{background:rgba(32,234,255,.16);color:#bbf9ff}.badge.amber{background:rgba(255,209,102,.16);color:#ffecb1}.badge.red{background:rgba(255,49,93,.18);color:#ffd1d1}.badge.orange{background:rgba(255,90,24,.18);color:#ffc6ac}.stats{grid-template-columns:repeat(2,1fr);margin:16px 0}.stat{background:#070808;border:1px solid rgba(255,255,255,.09);border-radius:5px;padding:12px}.stat small{color:var(--muted);display:block}.stat b{color:white}.filters{grid-template-columns:1.4fr .7fr .5fr auto;margin-bottom:16px}input,select,textarea{width:100%;border-radius:5px;border:1px solid rgba(0,238,255,.28);background:#0a0b0c;color:white;padding:13px;font:inherit}textarea{min-height:130px;resize:vertical}label{display:block;color:var(--cyan);font-size:12px;margin-bottom:7px;text-transform:uppercase;font-weight:900;letter-spacing:.06em}.formgrid{grid-template-columns:repeat(2,1fr)}.table{overflow:hidden;border-radius:8px;border:1px solid rgba(0,238,255,.28);background:#0a0b0c}.row{display:grid;grid-template-columns:.45fr 1fr 1fr .8fr .8fr .6fr;gap:8px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);font-size:14px}.row:last-child{border-bottom:0}.head{color:rgba(255,255,255,.48);text-transform:uppercase;font-size:12px}.profile{grid-template-columns:1fr .82fr}.avatar{width:82px;height:82px;border-radius:8px;background:var(--green);color:#04110c;display:grid;place-items:center;font-size:28px;font-weight:900}.profilebox{display:flex;gap:18px;align-items:flex-start}.progress{height:12px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.bar{height:100%;width:91%;background:linear-gradient(90deg,var(--green),var(--cyan))}.matchgrid{grid-template-columns:.9fr 1.1fr}.versus{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}.player{text-align:center;background:#0a0b0c;border:1px solid rgba(0,238,255,.28);border-radius:8px;padding:18px}.bracket{display:flex;gap:22px;overflow-x:auto}.round{min-width:230px}.round h3{color:var(--cyan);text-transform:uppercase;font-size:14px}.game{background:#0a0b0c;border:1px solid rgba(0,238,255,.25);border-radius:5px;padding:10px;margin-bottom:13px}.team{display:flex;justify-content:space-between;background:#17191b;border-left:4px solid var(--cyan);padding:10px;margin:6px 0}.feed{grid-template-columns:1fr .8fr}.post{background:#0a0b0c;border:1px solid rgba(0,238,255,.28);border-radius:8px;padding:18px;margin-bottom:16px}.side .card{margin-bottom:20px}.check,.warn{display:flex;gap:10px;align-items:flex-start;background:#0d0f10;border:1px solid rgba(0,238,255,.16);border-radius:6px;padding:13px;margin-top:10px;font-size:14px;font-family:Inter,system-ui,sans-serif}.check:before{content:'✓';color:var(--green);font-weight:900}.warn{border-color:rgba(255,90,24,.32)}.warn:before{content:'•';color:var(--orange);font-weight:900}.hidden{display:none}.notice{background:rgba(32,234,255,.08);border:1px solid rgba(32,234,255,.25);border-radius:6px;padding:14px;color:#d8fbff;margin-bottom:18px;font-family:Inter,system-ui,sans-serif}.pillselect{display:flex;gap:8px}.pillselect button{flex:1}.pillselect button.on{background:var(--green);color:#04110c;border-color:var(--green)}.adminitem{background:#0d0f10;border:1px solid rgba(0,238,255,.2);border-radius:8px;padding:15px;margin-bottom:14px}.entry-choice{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.entry-choice button{min-height:58px}.cash-token-box{border:1px solid rgba(102,255,0,.25);background:rgba(102,255,0,.055);padding:14px;border-radius:6px;margin-top:12px}.image-strip{height:170px;border-radius:8px;margin-bottom:14px;background:linear-gradient(135deg,rgba(0,238,255,.2),rgba(255,90,24,.18)),radial-gradient(circle at 20% 45%,rgba(102,255,0,.8),transparent 7%),radial-gradient(circle at 70% 25%,rgba(0,238,255,.7),transparent 8%),#111;background-size:cover;border:1px solid rgba(0,238,255,.35)}@media(max-width:900px){.top{padding:18px}.main{grid-template-columns:1fr;padding:18px}.features,.tourneys,.metrics,.filters,.formgrid,.profile,.matchgrid,.feed,.entry-choice{grid-template-columns:1fr}.hero h2{font-size:38px}.title h2{font-size:28px}.row{grid-template-columns:.4fr 1fr .8fr;}.row .hideMobile{display:none}.profilebox{flex-direction:column}}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS Exchange</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body {
+  font-family: Arial;
+  background: #0b0d0f;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #00ffcc;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+</style>
 </head>
+
 <body>
-<div class="wrap">
-  <div class="top">
-    <div class="brand"><div class="logo">VS</div><div><small>Competitive skill-based gaming platform</small><h1>VS Exchange</h1></div></div>
-    <div class="nav" id="nav"></div>
+
+<div class="container">
+
+  <h1>VS Exchange</h1>
+
+  <div id="auth">
+    <input id="email" placeholder="Email" />
+    <input id="password" type="password" placeholder="Password" />
+
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="login()">Login</button>
   </div>
-  <div class="grid main">
-    <main id="content"></main>
-    <aside class="side">
-      <div class="card"><div class="title"><div class="ico">🔔</div><h3>MVP status</h3></div>
-        <p class="muted">Game-style version based on your Wix preview: black arena feel, neon cyan/green headings, sharper bracket/tournament cards.</p>
-        <div class="check">Interactive page structure for the core website</div>
-        <div class="check">Cash vs token logic shown in the UX</div>
-        <div class="check">Tournament, match room, wallet, profile and admin flows</div>
-        <div class="warn">Real login still needs backend implementation</div>
-        <div class="warn">Payments, escrow and KYC need external providers</div>
-        <div class="warn">Database, uploads and live chat need development</div>
-      </div>
-      <div class="card"><h3>Recommended build path</h3>
-        <div class="check"><b>Phase 1:</b>&nbsp; Token events, private tournaments, manual review.</div>
-        <div class="check"><b>Phase 2:</b>&nbsp; Auth, database, brackets, uploads, moderator tools.</div>
-        <div class="check"><b>Phase 3:</b>&nbsp; Payments, KYC, payouts, sponsors and anti-cheat.</div>
-      </div>
-    </aside>
+
+  <div id="dashboard" class="hidden">
+    <h2>Welcome 🎮</h2>
+    <p>You are logged in</p>
+    <button onclick="logout()">Logout</button>
   </div>
+
 </div>
+
 <script>
-const pages=['Home','Tournament Hub','Create Tournament','Leaderboard','Player Profile','Match Room','Wallet','Community','Admin View'];
-const tournaments=[
-{title:'FC 24 Friday Knockout',game:'EA FC 24',platform:'PlayStation 5',type:'Cash 18+',entry:'£10',prize:'£190',players:'16 / 16',starts:'Tonight 8:00 PM',visibility:'Public',status:'Live'},
-{title:'Warzone Duos Rush',game:'Call of Duty: Warzone',platform:'Crossplay',type:'Cash 18+',entry:'£5',prize:'£95',players:'11 / 20',starts:'Tomorrow 7:30 PM',visibility:'Public',status:'Open'},
-{title:'U18 FC Elite Ladder',game:'EA FC 24',platform:'Xbox Series X',type:'Tokens',entry:'15 Tokens',prize:'60 Tokens',players:'24 / 32',starts:'Saturday 5:00 PM',visibility:'Public',status:'Open'},
-{title:'Private 2v2 Invitational',game:'Rocket League',platform:'Crossplay',type:'Tokens',entry:'25 Tokens',prize:'120 Tokens',players:'6 / 8',starts:'Sunday 6:00 PM',visibility:'Private',status:'Open'},
-{title:'Creator Choice Showdown',game:'EA FC 24',platform:'Crossplay',type:'Cash + Tokens',entry:'£5 + 10 Tokens',prize:'£95 + 200 Tokens',players:'18 / 32',starts:'Sunday 9:00 PM',visibility:'Public',status:'Open'}];
-const leaders=[['1','VSX Ghost','EA FC 24','2840','78/11','9'],['2','KingNox','Warzone','2760','64/14','6'],['3','ApexRift','EA FC 24','2685','57/12','4'],['4','ClutchViper','Rocket League','2550','49/10','3'],['5','RapidFrost','Warzone','2495','51/17','2'],['6','JoshBish94','EA FC 24','2430','42/9','5']];
-let page='Home';
-function esc(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
-function nav(){document.getElementById('nav').innerHTML=pages.map(p=>`<button class="${p===page?'active':''}" onclick="go('${p}')">${p}</button>`).join('')}
-function go(p){page=p;nav();render();window.scrollTo({top:0,behavior:'smooth'})}
-function title(icon,t,sub){return `<div class="title"><div class="ico">${icon}</div><div><h2>${t}</h2><p class="muted">${sub}</p></div></div>`}
-function metric(l,v,h){return `<div class="metric"><small>${l}</small><b>${v}</b><small>${h}</small></div>`}
-function card(t){let cash=t.type.includes('Cash');let both=t.type.includes('+');return `<div class="tourney"><div class="image-strip"></div><div class="badges"><span class="badge">${t.game}</span><span class="badge ${both?'orange':cash?'green':'blue'}">${t.type}</span><span class="badge">${t.visibility}</span><span class="badge ${t.status==='Live'?'red':'amber'}">${t.status}</span></div><h3>${t.title}</h3><p class="muted">${t.platform}</p><div class="grid stats"><div class="stat"><small>Entry</small><b>${t.entry}</b></div><div class="stat"><small>Prize</small><b>${t.prize}</b></div><div class="stat"><small>Players</small><b>${t.players}</b></div><div class="stat"><small>Starts</small><b>${t.starts}</b></div></div><div class="actions"><button class="btn primary" onclick="alert('Demo only: this would join the tournament after login / verification.')">Join Now</button><button class="btn ghost" onclick="go('Match Room')">View Details</button></div></div>`}
-function home(){return `<section class="card hero"><span class="badge green">Clickable MVP Demo</span><h2>Create tournaments. Climb leaderboards. Win cash or tokens. Prove every result.</h2><p>This interactive MVP shows the VS Exchange product direction: public/private tournaments, 18+ cash events, token events and combined cash + token entry, ranked pathways, disputes, wallets, clips and community growth.</p><div class="actions"><button class="btn primary" onclick="go('Create Tournament')">Start a Tournament</button><button class="btn ghost" onclick="go('Tournament Hub')">Browse Events</button></div></section><section class="grid metrics" style="margin-top:16px">${metric('Active Players','12,480','Growing through ranked and private invites')}${metric('Cash Prize Pools','£38,240','18+ verified events only')}${metric('Tokens Won Today','9,420','U18 and ranked ecosystems')}${metric('Reported Disputes','14','Manual review and proof workflow')}</section><section class="grid features" style="margin-top:16px">${['🏆|Skill-based format|1v1, 2v2 and bracketed competitive events with structured progression.','🪙|Flexible entry|Creators can choose cash only, tokens only, or both cash + tokens for the same tournament.','🛡️|Integrity first|Proof upload, screenshot checks, disconnect rules and a dispute window built into the flow.','👑|Top 100 pathway|Ranked tokens drive qualification into high-visibility invitational events.'].map(x=>{let a=x.split('|');return `<div class="card feature"><div class="ico">${a[0]}</div><h3>${a[1]}</h3><p>${a[2]}</p></div>`}).join('')}</section><section class="card" style="margin-top:16px">${title('🔥','Featured tournaments','Marketplace-style tournament cards for launch.')}<div class="grid tourneys">${tournaments.map(card).join('')}</div></section>`}
-function hub(){return `<section class="card">${title('⚔️','Tournament Hub','Search events, filter by game, and separate token competition from 18+ cash play.')}<div class="grid filters"><input id="q" placeholder="Search game, title, platform..." oninput="filterHub()"><select id="game" onchange="filterHub()"><option>All games</option><option>EA FC 24</option><option>Call of Duty: Warzone</option><option>Rocket League</option></select><select id="cash" onchange="filterHub()"><option>All types</option><option>Cash only</option><option>Tokens only</option></select><button class="btn primary">Apply</button></div><div id="hubcards" class="grid tourneys"></div></section>`}
-function filterHub(){let q=(document.getElementById('q')?.value||'').toLowerCase(),g=document.getElementById('game')?.value,c=document.getElementById('cash')?.value;let arr=tournaments.filter(t=>(t.title+t.game+t.platform).toLowerCase().includes(q)&&(g==='All games'||t.game===g)&&(c==='All types'||(c==='Cash only'?t.type.includes('Cash'):t.type.includes('Tokens'))));document.getElementById('hubcards').innerHTML=arr.map(card).join('')||'<p class="muted">No tournaments found.</p>'}
-function create(){return `<section class="card">${title('📅','Create Tournament','Organiser flow with cash only, token only, or combined cash + token entry.')}<div class="notice">Updated from your feedback: tournaments can now offer cash entry, token entry, or both together.</div><div class="grid formgrid"><div><label>Tournament name</label><input placeholder="Sunday FC Elite Cup"></div><div><label>Game</label><select><option>EA FC 24</option><option>Warzone</option><option>Rocket League</option><option>F1</option></select></div><div><label>Entry type</label><div class="entry-choice"><button class="btn on" onclick="entryMode(this,'cash')">Cash</button><button class="btn" onclick="entryMode(this,'tokens')">Tokens</button><button class="btn" onclick="entryMode(this,'both')">Cash + Tokens</button></div></div><div><label>Visibility</label><div class="pillselect"><button class="btn on" onclick="pill(this)">Public</button><button class="btn" onclick="pill(this)">Private</button></div></div><div id="cashField"><label>Cash entry amount</label><input placeholder="£10"></div><div id="tokenField" class="hidden"><label>Token entry amount</label><input placeholder="15 Tokens"></div><div><label>Participants</label><select><option>8 Players</option><option selected>16 Players</option><option>32 Players</option><option>64 Players</option></select></div><div><label>Prize style</label><select><option>Winner takes all</option><option>Top 3 split</option><option>Creator custom split</option><option>Site invitational qualifier</option></select></div></div><div class="cash-token-box" id="entrySummary"><b>Current entry mode:</b> Cash only — 18+ verified users can pay cash entry and receive cash prizes after proof/dispute review.</div><div class="grid formgrid" style="margin-top:16px"><div class="card"><h3>Rules & proof policy</h3><div class="check">Score screenshot required</div><div class="check">Clip upload optional</div><div class="check">Disconnect = auto loss</div><div class="check">48h dispute window</div><div class="check">Cash prizes held until review window closes</div><div class="check">Token rewards can update ranked profile instantly</div></div><div class="card"><h3>Tournament summary</h3><div class="check">Creator can choose cash, tokens, or both</div><div class="check">18+ verification required for any cash entry</div><div class="check">U18 accounts remain token-only</div><div class="check">Combined events show two prize pools: £ and tokens</div><button class="btn primary" style="width:100%;margin-top:12px" onclick="alert('Demo only: this would publish to the database.')">Publish Tournament</button></div></div><div style="margin-top:16px"><label>Description / rules</label><textarea placeholder="Add format, scoring, proof requirements, late join policy, cash prize breakdown and token prize breakdown..."></textarea></div></section>`}
-function pill(el){[...el.parentNode.children].forEach(b=>b.classList.remove('on'));el.classList.add('on')}
-function entryMode(el,mode){[...el.parentNode.children].forEach(b=>b.classList.remove('on'));el.classList.add('on');let cash=document.getElementById('cashField'),tok=document.getElementById('tokenField'),sum=document.getElementById('entrySummary');if(!cash)return;cash.classList.toggle('hidden',mode==='tokens');tok.classList.toggle('hidden',mode==='cash');sum.innerHTML=mode==='cash'?'<b>Current entry mode:</b> Cash only — 18+ verified users can pay cash entry and receive cash prizes after proof/dispute review.':mode==='tokens'?'<b>Current entry mode:</b> Token only — users compete using ranked tokens with no cash entry. Ideal for U18-safe competition and free community events.':'<b>Current entry mode:</b> Cash + Tokens — one tournament can have a cash entry/prize pool and a token entry/prize pool side by side.'}
-function leaderboard(){return `<section class="card">${title('🏅','Leaderboard','Ranked token competition and Top 100 qualification progress.')}<div class="grid metrics">${metric('Top 100 Cutoff','2,220 pts','Snapshot this Sunday')}${metric('Your Rank','#6','JoshBish94 in EA FC 24')}${metric('Your Streak','5 Wins','Momentum boosts profile visibility')}</div><div class="table" style="margin-top:16px"><div class="row head"><div>Rank</div><div>Player</div><div>Game</div><div class="hideMobile">Points</div><div class="hideMobile">W/L</div><div class="hideMobile">Streak</div></div>${leaders.map(r=>`<div class="row"><div>#${r[0]}</div><div><b>${r[1]}</b></div><div>${r[2]}</div><div class="hideMobile">${r[3]}</div><div class="hideMobile">${r[4]}</div><div class="hideMobile">${r[5]}</div></div>`).join('')}</div></section>`}
-function profile(){return `<section class="card">${title('👤','Player Profile','Stats, gamertag identity, socials, earnings, clips and progression.')}<div class="grid profile"><div class="card"><div class="profilebox"><div class="avatar">JB</div><div><h2>JoshBish94 <span class="badge green">Verified Gamer</span> <span class="badge">Adult Account</span></h2><p class="muted">PSN: JoshBish94 • EA FC 24 main • Followed by 228 players</p><div class="grid stats"><div class="stat"><small>Wins</small><b>42</b></div><div class="stat"><small>Losses</small><b>9</b></div><div class="stat"><small>Win Rate</small><b>82%</b></div><div class="stat"><small>Tokens</small><b>620</b></div></div><p class="muted">Top 100 qualification progress: 91%</p><div class="progress"><div class="bar"></div></div></div></div></div><div class="card"><h3>Socials & content</h3><div class="check">Twitch linked</div><div class="check">TikTok clip feed enabled</div><div class="check">Goal of tournament submissions open</div><div class="check">Followers can receive live match alerts</div></div></div></section>`}
-function match(){let round=(name,arr)=>`<div class="round"><h3>${name}</h3>${arr.map(m=>`<div class="game"><div class="team"><span>${m[0]}</span><span>1</span></div><div class="team"><span>${m[1]}</span><span>0</span></div></div>`).join('')}</div>`;return `<section class="card">${title('▶️','Match Room','Lobby details, proof upload, live bracket visibility and dispute triggers.')}<div class="grid matchgrid"><div class="card"><h3>Current live match</h3><p class="muted">FC 24 Friday Knockout • Quarter Final</p><div class="versus" style="margin-top:14px"><div class="player"><small class="muted">Player A</small><h2>VSX Ghost</h2></div><b>VS</b><div class="player"><small class="muted">Player B</small><h2>JoshBish94</h2></div></div><div class="grid stats"><div class="stat"><small>Room code</small><b>VSX-QF-4421</b></div><div class="stat"><small>Result deadline</small><b>10 mins after finish</b></div></div><div class="actions"><button class="btn primary" onclick="alert('Demo: proof upload would open here.')">Upload Proof</button><button class="btn ghost">Tournament Chat</button><button class="btn red" onclick="alert('Demo: dispute raised for admin review.')">Raise Dispute</button></div></div><div class="card"><h3>Live bracket</h3><div class="bracket" style="margin-top:14px">${round('Quarter Finals',[['VSX Ghost','JoshBish94'],['ApexRift','ClutchViper'],['RapidFrost','UltraDan'],['KingNox','PixelRaid']])}${round('Semi Finals',[['VSX Ghost','ApexRift'],['RapidFrost','KingNox']])}${round('Final',[['VSX Ghost','KingNox']])}</div></div></div></section>`}
-function wallet(){return `<section class="card">${title('💳','Wallet & Tokens','Separate token identity from adult cash competition and show clear balance movement.')}<div class="grid metrics">${metric('Cash Balance','£86.00','Available after review windows close')}${metric('Token Balance','620','Used for ranked and site-run events')}${metric('Pending Release','£20.00','Held until dispute window ends')}</div><div class="grid formgrid" style="margin-top:16px"><div class="card"><h3>Recent wallet activity</h3>${[['Cash entry paid','FC 24 Friday Knockout','-£10'],['Token prize won','U18 FC Elite Ladder','+45 Tokens'],['Cash payout pending','Semi-final win','+£30'],['Top 100 reward','Monthly qualifier','+100 Tokens']].map(x=>`<div class="check"><span><b>${x[0]}</b><br><small>${x[1]}</small></span><span style="margin-left:auto">${x[2]}</span></div>`).join('')}</div><div class="card"><h3>Safety logic</h3><div class="check">Cash tournaments require verified 18+ status before entry.</div><div class="check">Tokens are non-cash, non-transferable platform rank currency.</div><div class="check">Prize release follows review rules and dispute checks.</div><div class="check">Private matches can still use proof upload and admin review.</div></div></div></section>`}
-function community(){return `<section class="card">${title('🌍','Community & Social','Social layer for clips, challenges and private tournament growth.')}<div class="grid feed"><div>${[['VSX Ghost','Clip of the day','Late winner in the 89th minute to qualify for the cash semi-final. Uploading full proof now.','142','23'],['VS Exchange','Announcement','Top 100 Invitational qualifiers update: next snapshot Sunday at 11:59 PM. Keep grinding ranked tokens.','201','48'],['AellaStorm','Looking for team','Need one more Rocket League player for a private token tournament tonight. Chill but competitive.','37','16']].map(p=>`<div class="post"><span class="badge green">${p[1]}</span><h3>${p[0]}</h3><p style="margin-top:10px;color:rgba(255,255,255,.82);line-height:1.6">${p[2]}</p><p class="muted" style="margin-top:10px">⭐ ${p[3]} &nbsp; 💬 ${p[4]}</p></div>`).join('')}</div><div><div class="card"><h3>Create a post</h3><textarea placeholder="Post your win, challenge another player, or share a clip..."></textarea><button class="btn primary" style="width:100%;margin-top:10px" onclick="alert('Demo only: this would publish a post.')">Publish Post</button></div><div class="card" style="margin-top:14px"><h3>Growth loops</h3><div class="check">Follow players and get match alerts</div><div class="check">Vote on goal of the tournament</div><div class="check">Private tournament invites via shared links</div><div class="check">Clips featured on homepage and socials</div></div></div></div></section>`}
-function admin(){return `<section class="card">${title('⚖️','Admin / Manual Ops View','Operational layer for early launch before full automation.')}<div class="grid formgrid"><div class="card"><h3>Disputes queue</h3>${[['FC 24 Friday Knockout - Quarter Final','VSX Ghost vs JoshBish94','Score disagreement after disconnect in 72nd minute','Pending Review'],['Warzone Duos Rush - Round 1','KingNox / RapidFrost vs Team Venom','Opponent failed to join lobby on time','Resolved']].map(d=>`<div class="adminitem"><span class="badge ${d[3]==='Resolved'?'green':'amber'}">${d[3]}</span><h3>${d[0]}</h3><p class="muted">${d[1]}</p><p style="margin-top:8px">${d[2]}</p><div class="actions"><button class="btn primary">Approve</button><button class="btn ghost">Review</button><button class="btn red">Escalate</button></div></div>`).join('')}</div><div class="card"><h3>Launch-phase manual controls</h3>${['Approve payouts after proof and dispute checks','Manually seed brackets where needed','Check age verification before cash entry approval','Ban or suspend cheating / abusive users','Feature clips and announcements on homepage','Run Top 100 invite snapshots and invite messaging'].map(x=>`<div class="check">${x}</div>`).join('')}</div></div></section>`}
-function render(){let html={Home:home,'Tournament Hub':hub,'Create Tournament':create,Leaderboard:leaderboard,'Player Profile':profile,'Match Room':match,Wallet:wallet,Community:community,'Admin View':admin}[page]();document.getElementById('content').innerHTML=html;if(page==='Tournament Hub')filterHub()}
-nav();render();
+const supabase = window.supabase.createClient(
+  "https://vdrwpqmwayvsmszaosen.supabase.co",
+  "sb_publishable_vF12mgEQBoLPMKRwuIAEvg_Rbc66Z_v"
+)
+
+async function signUp() {
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  const { error } = await supabase.auth.signUp({ email, password })
+
+  if (error) alert(error.message)
+  else alert("Check your email to confirm signup")
+}
+
+async function login() {
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  const { error } = await supabase.auth.signInWithPassword({ email, password })
+
+  if (error) alert(error.message)
+  else showDashboard()
+}
+
+async function logout() {
+  await supabase.auth.signOut()
+  location.reload()
+}
+
+function showDashboard() {
+  document.getElementById('auth').classList.add('hidden')
+  document.getElementById('dashboard').classList.remove('hidden')
+}
+
+// Check if already logged in
+supabase.auth.getSession().then(({ data }) => {
+  if (data.session) showDashboard()
+})
 </script>
+
 </body>
 </html>
