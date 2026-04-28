@@ -102,7 +102,7 @@ button {
     <div>Cash £0.00</div>
     <div>Tokens 0</div>
     <div>Rank Unranked</div>
-    <button class="primary">Login / Sign Up</button>
+<button class="primary" onclick="openAuth()">Login / Sign Up</button>    
   </div>
 </div>
 
@@ -135,6 +135,34 @@ button {
   </div>
 
 </div>
+<script>
+const SUPABASE_URL = "https://vdrwpqmwayvsmszaosen.supabase.co";
+const SUPABASE_KEY = "sb_publishable_vF12mgEQBoLPMKRwuIAEvg_Rbc66Z_v";
 
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function openAuth() {
+  const email = prompt("Enter email:");
+  const password = prompt("Enter password:");
+
+  if (!email || !password) return;
+
+  supabase.auth.signUp({ email, password }).then(({ data, error }) => {
+    if (error && error.message !== "User already registered") {
+      alert(error.message);
+    } else {
+      supabase.auth.signInWithPassword({ email, password }).then(({ data, error }) => {
+        if (error) {
+          alert(error.message);
+        } else {
+          alert("Logged in!");
+          location.reload();
+        }
+      });
+    }
+  });
+}
+</script>
+  
 </body>
 </html>
