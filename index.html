@@ -9,106 +9,132 @@
 
 <style>
 body {
+  margin:0;
   font-family: Arial;
-  background: #0b0d0f;
-  color: white;
-  text-align: center;
+  background:#050607;
+  color:white;
 }
 
-.container {
-  max-width: 400px;
-  margin: 60px auto;
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #222;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
+.logo {
+  font-weight:bold;
+  font-size:22px;
+}
+
+.menu {
+  position:relative;
+}
+
+.dropdown {
+  display:none;
+  position:absolute;
+  background:#111;
+  padding:10px;
+  border-radius:8px;
+}
+
+.menu:hover .dropdown {
+  display:block;
+}
+
+.account {
+  display:flex;
+  gap:10px;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: none;
-  background: #00ffcc;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.hidden {
-  display: none;
+.primary {
+  background:#52ff00;
+  color:black;
+  font-weight:bold;
+}
+
+.container {
+  padding:20px;
+}
+
+.card {
+  background:#111;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.empty {
+  border:1px dashed #555;
+  padding:20px;
+  margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="topbar">
+  <div class="logo">VS Exchange</div>
 
-  <h1>VS Exchange</h1>
-
-  <div id="auth">
-    <input id="email" placeholder="Email" />
-    <input id="password" type="password" placeholder="Password" />
-
-    <button onclick="signUp()">Sign Up</button>
-    <button onclick="login()">Login</button>
+  <div class="menu">
+    <button>Menu</button>
+    <div class="dropdown">
+      <div>Home</div>
+      <div>Tournament Hub</div>
+      <div>Create Tournament</div>
+      <div>Leaderboard</div>
+      <div>Profile</div>
+      <div>Wallet</div>
+      <div>Admin</div>
+    </div>
   </div>
 
-  <div id="dashboard" class="hidden">
-    <h2>Welcome 🎮</h2>
-    <p>You are logged in</p>
-    <button onclick="logout()">Logout</button>
+  <div class="account">
+    <div>Cash £0.00</div>
+    <div>Tokens 0</div>
+    <div>Rank Unranked</div>
+    <button class="primary">Login / Sign Up</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>VS Exchange is live</h2>
+    <p>Create tournaments. Climb leaderboards. Win cash or tokens.</p>
+  </div>
+
+  <div class="card">
+    <h3>Tournament Hub</h3>
+    <div class="empty">
+      No tournaments yet. Create the first one.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Leaderboard</h3>
+    <div class="empty">
+      No ranked players yet.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Social Wall</h3>
+    <div class="empty">
+      No posts yet.
+    </div>
   </div>
 
 </div>
-
-<script>
-const supabase = window.supabase.createClient(
-  "https://vdrwpqmwayvsmszaosen.supabase.co",
-  "sb_publishable_vF12mgEQBoLPMKRwuIAEvg_Rbc66Z_v"
-)
-
-async function signUp() {
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-
-  const { error } = await supabase.auth.signUp({ email, password })
-
-  if (error) alert(error.message)
-  else alert("Check your email to confirm signup")
-}
-
-async function login() {
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-
-  const { error } = await supabase.auth.signInWithPassword({ email, password })
-
-  if (error) alert(error.message)
-  else showDashboard()
-}
-
-async function logout() {
-  await supabase.auth.signOut()
-  location.reload()
-}
-
-function showDashboard() {
-  document.getElementById('auth').classList.add('hidden')
-  document.getElementById('dashboard').classList.remove('hidden')
-}
-
-// Check if already logged in
-supabase.auth.getSession().then(({ data }) => {
-  if (data.session) showDashboard()
-})
-</script>
 
 </body>
 </html>
