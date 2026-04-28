@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VS Exchange</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
 <style>
 body {
@@ -46,6 +46,7 @@ body {
 .account {
   display:flex;
   gap:10px;
+  align-items:center;
 }
 
 button {
@@ -102,7 +103,7 @@ button {
     <div>Cash £0.00</div>
     <div>Tokens 0</div>
     <div>Rank Unranked</div>
-<button class="primary" onclick="openAuth()">Login / Sign Up</button>    
+    <button class="primary" onclick="openAuth()">Login / Sign Up</button>
   </div>
 </div>
 
@@ -135,11 +136,12 @@ button {
   </div>
 
 </div>
+
 <script>
 const SUPABASE_URL = "https://vdrwpqmwayvsmszaosen.supabase.co";
 const SUPABASE_KEY = "sb_publishable_vF12mgEQBoLPMKRwuIAEvg_Rbc66Z_v";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 function openAuth() {
   const email = prompt("Enter email:");
@@ -147,11 +149,11 @@ function openAuth() {
 
   if (!email || !password) return;
 
-  supabase.auth.signUp({ email, password }).then(({ data, error }) => {
+  client.auth.signUp({ email, password }).then(({ error }) => {
     if (error && error.message !== "User already registered") {
       alert(error.message);
     } else {
-      supabase.auth.signInWithPassword({ email, password }).then(({ data, error }) => {
+      client.auth.signInWithPassword({ email, password }).then(({ error }) => {
         if (error) {
           alert(error.message);
         } else {
@@ -163,6 +165,6 @@ function openAuth() {
   });
 }
 </script>
-  
+
 </body>
 </html>
